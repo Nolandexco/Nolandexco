@@ -1,4 +1,6 @@
-<div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+<section>
+  <div>
+    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
       <div className="glass p-6 rounded-lg">
         <h3 className="text-xl font-semibold mb-3">📧 Email Us</h3>
         <p className="text-gray-300">
