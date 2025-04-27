@@ -29,7 +29,7 @@ const PricingCard = ({ activePkg, setActivePackage, activePackage }) => (
       Buy
     </a>
     <div className="flex justify-center gap-2 mt-3">
-      {["Website", "Join Reseller", "Social Media Content"].map((pkg) => (
+      {["Online Business Setup", "Website", "Join Reseller"].map((pkg) => (
         <button
           key={pkg}
           onClick={() => setActivePackage(pkg)}
@@ -46,7 +46,7 @@ const PricingCard = ({ activePkg, setActivePackage, activePackage }) => (
 
 // Komponen Home
 const Home = () => {
-  const [activePackage, setActivePackage] = useState("Website");
+  const [activePackage, setActivePackage] = useState("Online Business Setup");
 
   const infoGridItems = useMemo(
     () => [
@@ -69,6 +69,20 @@ const Home = () => {
 
   const pricingPackages = useMemo(
     () => [
+      {
+        name: "Online Business Setup",
+        price: "$20",
+        description: "Ideal for individuals or small businesses looking to set up their online presence",
+        features: [
+          "Full online business setup",
+          "Website",
+          "Social media booster",
+          "Basic chatbot integration",
+          "Social media content",
+        ],
+        whatsappLink:
+          "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Online%20Business%20Setup%20package.%20Can%20you%20provide%20more%20details?",
+      },
       {
         name: "Website",
         price: "$10",
@@ -95,20 +109,6 @@ const Home = () => {
         ],
         whatsappLink:
           "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Join%20Reseller%20package.%20Can%20you%20provide%20more%20details?",
-      },
-      {
-        name: "Social Media Content",
-        price: "$15",
-        description: "Boost your brand with engaging social media content tailored to your audience.",
-        features: [
-          "Custom social media posts",
-          "Content calendar planning",
-          "Graphics and visuals",
-          "Engagement strategy",
-          "Monthly performance report",
-        ],
-        whatsappLink:
-          "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Social%20Media%20Content%20package.%20Can%20you%20provide%20more%20details?",
       },
     ],
     []
