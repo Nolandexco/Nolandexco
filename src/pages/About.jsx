@@ -4,76 +4,76 @@ const About = () => {
   return (
     <section id="about" className="min-h-screen flex items-center bg-gray-900 opacity-70 text-white">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-6 mt-32 mb-32">The Future Starts Here</h2>
+        <h2 className="text-4xl font-bold mb-6 mt-32 mb-32">Your Business, Launched with Confidence</h2>
         
         {/* Main Description */}
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          We are an AI startup with the ambition to create a sustainable technology ecosystem. 
-          <span className="text-blue-400">#MoreThanJustAI</span>, but a movement to prepare Indonesia for the digital revolution.
+          NolanDex is your all-in-one partner for launching a complete online business. 
+          <span className="text-blue-400">#StartFastGrowSmart</span>, we empower entrepreneurs to build, sell, and grow without stress.
         </p>
 
-        {/* Core Plans */}
+        {/* Core Services */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {/* AI & Job Opportunities */}
+          {/* Comprehensive Setup */}
           <div className="glass p-6 rounded-lg hover:transform hover:scale-105 transition-all">
-            <div className="text-blue-400 text-4xl mb-4">🤖💼</div>
-            <h3 className="text-xl font-semibold mb-3">AI for Everyone</h3>
+            <div className="text-blue-400 text-4xl mb-4">🌐💻</div>
+            <h3 className="text-xl font-semibold mb-3">Complete Business Setup</h3>
             <p className="text-gray-300">
-              We are developing a generative AI model <span className="font-bold">"Orion Core"</span> that will:
+              We provide everything you need to start strong with <span className="font-bold">NolanDex</span>:
             </p>
             <ul className="mt-2 text-left list-disc list-inside mx-auto max-w-xs">
-              <li>Create 500+ technical job openings within 2 years</li>
-              <li>Launch free AI training programs for beginners</li>
-              <li>Collaborate with universities for practical AI curricula</li>
+              <li>Professional website design and development</li>
+              <li>Branding and promotional designs</li>
+              <li>Automation for orders and payment systems</li>
             </ul>
           </div>
 
-          {/* Tech Education */}
+          {/* Growth Support */}
           <div className="glass p-6 rounded-lg hover:transform hover:scale-105 transition-all">
-            <div className="text-blue-400 text-4xl mb-4">🎓🚀</div>
-            <h3 className="text-xl font-semibold mb-3">Tech is a Basic Skill</h3>
+            <div className="text-blue-400 text-4xl mb-4">📈🚀</div>
+            <h3 className="text-xl font-semibold mb-3">Marketing & Growth Tools</h3>
             <p className="text-gray-300">
-              We believe that by 2030, AI literacy will be as essential as reading and writing. Therefore, we will:
+              We equip you with tools and strategies to scale your business effectively:
             </p>
             <ul className="mt-2 text-left list-disc list-inside mx-auto max-w-xs">
-              <li>Conduct workshops in 100+ schools & Islamic boarding schools</li>
-              <li>Develop an interactive AI learning platform for students</li>
-              <li>Provide scholarships for talents in remote areas</li>
+              <li>Social media content creation</li>
+              <li>Targeted marketing strategies</li>
+              <li>Business tools for seamless operations</li>
             </ul>
           </div>
         </div>
 
-        {/* Crypto Plan */}
+        {/* Guarantee & Speed */}
         <div className="glass p-6 rounded-lg mt-12 mx-auto max-w-2xl hover:transform hover:scale-102 transition-all">
-          <div className="text-blue-400 text-4xl mb-4">🔗₿</div>
-          <h3 className="text-xl font-semibold mb-3">Orion Chain</h3>
+          <div className="text-blue-400 text-4xl mb-4">✅💼</div>
+          <h3 className="text-xl font-semibold mb-3">Fast Setup, Proven Results</h3>
           <p className="text-gray-300">
-            In our roadmap: Launching a utility token <span className="font-bold">$ORION</span> that will:
+            With NolanDex, your business is ready in hours, backed by our commitment:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
             <div className="p-3 rounded bg-gray-800">
-              <p>💸 Reward system for AI contributors</p>
+              <p>⚡ Quick setup within hours</p>
             </div>
             <div className="p-3 rounded bg-gray-800">
-              <p>🌐 Decentralized payment for developers</p>
+              <p>📊 Proven results for growth</p>
             </div>
             <div className="p-3 rounded bg-gray-800">
-              <p>📈 Backed by AI computing power</p>
+              <p>💰 50% money-back guarantee</p>
             </div>
           </div>
         </div>
 
-        {/* National Support */}
+        {/* Mission Statement */}
         <div className="mt-12">
-          <h3 className="text-2xl font-bold mb-6">For a Digital Indonesia</h3>
+          <h3 className="text-2xl font-bold mb-6">Empowering Your Digital Success</h3>
           <div className="glass p-6 rounded-lg max-w-2xl mx-auto">
             <p className="text-gray-300">
-              "We are not just building products, but <span className="text-blue-400">preparing a nation</span>. 
-              Every line of code we write is an investment to make Indonesia not just a technology consumer, 
-              but a <span className="font-bold">producer of innovation</span>."
+              "We’re not just building businesses, but <span className="text-blue-400">empowering visions</span>. 
+              With NolanDex, every entrepreneur can go digital with ease, speed, and confidence, 
+              turning ideas into <span className="font-bold">thriving realities</span>."
             </p>
             <p className="mt-4 font-semibold text-blue-400">
-              - Orion Team
+              - NolanDex Team
             </p>
           </div>
         </div>
