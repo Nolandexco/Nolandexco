@@ -8,17 +8,19 @@ import feature3 from "../assets/images/feature3.jpg";
 import feature4 from "../assets/images/feature4.jpg";
 import feature5 from "../assets/images/feature5.jpg";
 
-// Komponen ImageSlider
+// Komponen ImageSlider (updated to remove titles, enlarge images, and add full-screen modal)
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const contents = [
-    { title: "Feature 1", image: feature1 },
-    { title: "Feature 2", image: feature2 },
-    { title: "Feature 3", image: feature3 },
-    { title: "Feature 4", image: feature4 },
-    { title: "Feature 5", image: feature5 },
+    { image: feature1 },
+    { image: feature2 },
+    { image: feature3 },
+    { image: feature4 },
+    { image: feature5 },
   ];
 
   // Simulasi loading selama 2 detik
@@ -37,9 +39,19 @@ const ImageSlider = () => {
     setCurrentIndex((prev) => (prev === contents.length - 1 ? 0 : prev + 1));
   };
 
+  const handleImageClick = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <div className="relative max-w-3xl mx-auto mt-12">
-      <div className="relative w-full h-64 bg-gray-800 rounded-lg overflow-hidden">
+      <div className="relative w-full h-80 bg-gray-800 rounded-lg overflow-hidden">
         {isLoading ? (
           <div className="flex items-center justify-center w-full h-full">
             <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
@@ -52,14 +64,12 @@ const ImageSlider = () => {
             transition={{ duration: 0.5 }}
             className="w-full h-full flex items-center justify-center bg-gray-700"
           >
-            <div className="text-center text-white">
-              <h3 className="text-xl font-bold mb-2">{contents[currentIndex].title}</h3>
-              <img
-                src={contents[currentIndex].image}
-                alt={contents[currentIndex].title}
-                className="w-full h-40 object-cover rounded-md"
-              />
-            </div>
+            <img
+              src={contents[currentIndex].image}
+              alt={`Slide ${currentIndex + 1}`}
+              className="w-full h-64 object-cover rounded-md cursor-pointer"
+              onClick={() => handleImageClick(contents[currentIndex].image)}
+            />
           </motion.div>
         )}
         <button
@@ -91,11 +101,29 @@ const ImageSlider = () => {
           />
         ))}
       </div>
+
+      {/* Full-screen image modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative max-w-4xl w-full">
+            <img src={selectedImage} alt="Full-screen" className="w-full h-auto rounded-lg" />
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
+              aria-label="Close modal"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-// Komponen InfoCard (fixed syntax error)
+// Komponen InfoCard
 const InfoCard = ({ title, description }) => (
   <div className="bg-gray-800 p-6 rounded-lg">
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
@@ -144,7 +172,7 @@ const Home = () => {
 
   const infoGridItems = useMemo(
     () => [
-      {
+７      {
         title: "Proven Success Rate",
         description:
           "Most of our users successfully launch their online businesses with NolanDex, backed by real customer success stories",
