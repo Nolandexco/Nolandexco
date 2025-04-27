@@ -1,11 +1,12 @@
+// src/pages/Contact.jsx
+
 import React from "react";
 
-function Contact() {
+export default function Contact() {
   return (
-    <>
-      <section className="pt-24 px-6">
+    <section className="min-h-screen bg-black text-white py-12 px-4">
+      <div className="max-w-6xl mx-auto">
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Email Us */}
           <div className="glass p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3">📧 Email Us</h3>
             <p className="text-gray-300">
@@ -18,8 +19,6 @@ function Contact() {
               </a>
             </p>
           </div>
-
-          {/* WhatsApp Us */}
           <div className="glass p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3">📲 WhatsApp Us</h3>
             <p className="text-gray-300">
@@ -34,38 +33,31 @@ function Contact() {
               </a>
             </p>
           </div>
-
-          {/* Follow Us */}
           <div className="glass p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-3">💬 Follow Us</h3>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-6">
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/nolandexco?igsh=NHBqczF1a2dvbXA5"
+                href="https://www.instagram.com/nolandexco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-600"
               >
-                {/* Instagram Icon */}
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301..."/>
-                  <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324z"/>
-                  <circle cx="18.406" cy="5.594" r="1.44" />
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm5 5c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm6.5-1a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM12 9c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z" />
                 </svg>
               </a>
-
               {/* TikTok */}
               <a
-                href="https://www.tiktok.com/@nolandexco?_t=ZS-8vtLBkk9WAE&_r=1"
+                href="https://www.tiktok.com/@nolandexco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-600"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.589 6.686a4.793 4.793 0 01-3.77-4.245V2h-3.445v13.672..."/>
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2v14.5a3.5 3.5 0 11-3.5-3.5h.5V9h2v4h1V2h2z" />
                 </svg>
               </a>
-
               {/* Facebook */}
               <a
                 href="https://www.facebook.com/nolandexco"
@@ -73,23 +65,21 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-600"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0..."/>
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.2 8.5 9.9v-7H8v-2.9h2.5V9.5c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.7l-.4 2.9h-2.3v7c4.8-.7 8.5-4.9 8.5-9.9z" />
                 </svg>
               </a>
-
               {/* X (Twitter) */}
               <a
-                href="https://x.com/nolandexco?t=uSxJhqbQHM-gA04NvOmX6w&s=09"
+                href="https://x.com/nolandexco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-600"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17..."/>
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 2 11 13l9 9H15l-9-9 9-9z" />
                 </svg>
               </a>
-
               {/* Telegram */}
               <a
                 href="https://t.me/Nolandex"
@@ -97,15 +87,14 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-600"
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12..."/>
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.3 17.6l-.4 4.1c.6 0 .9-.2 1.3-.6l2.7-2.5 5.6 4.1c1 .7 1.7.3 2-1l3.7-17.5c.4-1.9-.7-2.7-2-2.2L2.6 9.5c-1.8.7-1.8 1.7-.3 2.1l5.8 1.8L20.2 5.4c.4-.2.8 0 .6.3L9.3 17.6z" />
                 </svg>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
         <form className="mt-12 max-w-lg mx-auto bg-gray-900 p-6 rounded-lg shadow-lg mb-24">
           <h3 className="text-xl font-semibold mb-4">📩 Send a Message</h3>
           <input
@@ -122,17 +111,12 @@ function Contact() {
             placeholder="Your Message"
             className="w-full p-3 mb-4 bg-gray-700 text-white rounded-md outline-none"
             rows="5"
-          />
-          <button
-            type="submit"
-            className="glass px-6 py-3 font-semibold hover:bg-blue-500 transition rounded-md"
-          >
+          ></textarea>
+          <button className="glass px-6 py-3 font-semibold hover:bg-blue-500 transition rounded-md">
             Send Message
           </button>
         </form>
-      </section>
-    </>
+      </div>
+    </section>
   );
-}
-
-export default Contact;
+              }
