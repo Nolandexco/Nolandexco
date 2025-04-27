@@ -1,34 +1,44 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 
-// Import images for the slider
-import feature1 from "../assets/images/feature1.jpg";
-import feature2 from "../assets/images/feature2.jpg";
-import feature3 from "../assets/images/feature3.jpg";
-import feature4 from "../assets/images/feature4.jpg";
-import feature5 from "../assets/images/feature5.jpg";
+// Ensure Tailwind CSS is included in the project (see notes below)
+// Add this CSS to your stylesheet (e.g., src/index.css) for loader and glass effects
+/*
+.loader {
+  border-top-color: #3498db;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+*/
 
-// Komponen ImageSlider (updated to remove titles, enlarge images, and add full-screen modal)
+// Komponen ImageSlider
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const contents = [
-    { image: feature1 },
-    { image: feature2 },
-    { image: feature3 },
-    { image: feature4 },
-    { image: feature5 },
+    { title: "Feature 1", description: "Description for feature 1." },
+    { title: "Feature 2", description: "Description for feature 2." },
+    { title: "Feature 3", description: "Description for feature 3." },
+    { title: "Feature 4", description: "Description for feature 4." },
+    { title: "Feature 5", description: "Description for feature 5." },
   ];
 
-  // Simulasi loading selama 2 detik
+  // Simulasi loading selama 2 detik (bisa diganti dengan fetch data)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer); // Cleanup to prevent memory leaks
   }, []);
 
   const handlePrevious = () => {
@@ -39,19 +49,9 @@ const ImageSlider = () => {
     setCurrentIndex((prev) => (prev === contents.length - 1 ? 0 : prev + 1));
   };
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedImage(null);
-  };
-
   return (
     <div className="relative max-w-3xl mx-auto mt-12">
-      <div className="relative w-full h-80 bg-gray-800 rounded-lg overflow-hidden">
+      <div className="relative w-full h-64 bg-gray-800 rounded-lg overflow-hidden">
         {isLoading ? (
           <div className="flex items-center justify-center w-full h-full">
             <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
@@ -64,12 +64,10 @@ const ImageSlider = () => {
             transition={{ duration: 0.5 }}
             className="w-full h-full flex items-center justify-center bg-gray-700"
           >
-            <img
-              src={contents[currentIndex].image}
-              alt={`Slide ${currentIndex + 1}`}
-              className="w-full h-64 object-cover rounded-md cursor-pointer"
-              onClick={() => handleImageClick(contents[currentIndex].image)}
-            />
+            <div className="text-center text-white">
+              <h3 className="text-2xl font-bold">{contents[currentIndex].title}</h3>
+              <p className="mt-2">{contents[currentIndex].description}</p>
+            </div>
           </motion.div>
         )}
         <button
@@ -101,24 +99,6 @@ const ImageSlider = () => {
           />
         ))}
       </div>
-
-      {/* Full-screen image modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative max-w-4xl w-full">
-            <img src={selectedImage} alt="Full-screen" className="w-full h-auto rounded-lg" />
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition"
-              aria-label="Close modal"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
@@ -134,30 +114,28 @@ const InfoCard = ({ title, description }) => (
 // Komponen PricingCard
 const PricingCard = ({ activePkg, setActivePackage, activePackage }) => (
   <div className="bg-gray-800 p-6 rounded-lg">
-    <h3 className="text-xl font-bold mb-3">{activePkg.name}</h3>
-    <p className="text-2xl font-semibold mb-3">{activePkg.price}</p>
-    <p className="text-gray-400 text-sm mb-4">{activePkg.description}</p>
-    <ul className="mb-4 text-sm">
+    <h3 className="text-2xl font-bold mb-4">{activePkg.name}</h3>
+    <p className="text-3xl font-semibold mb-4">{activePkg.price}</p>
+    <p className="text-gray-400 mb-6">{activePkg.description}</p>
+    <ul className="mb-6">
       {activePkg.features.map((feature, index) => (
-        <li key={index} className="text-gray-300 mb-1">✔ {feature}</li>
+        <li key={index} className="text-gray-300 mb-2">✔ {feature}</li>
       ))}
     </ul>
     <a
       href={activePkg.whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="block text-center bg-blue-500 text-white py-2 px-6 rounded-tl-[16px] rounded-br-[16px] hover:bg-blue-600 transition glass text-sm font-semibold"
+      className="block text-center bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
     >
-      Buy
+      Get Started
     </a>
-    <div className="flex justify-center gap-2 mt-3">
+    <div className="flex justify-center gap-2 mt-4">
       {["Online Business Setup", "Website", "Join Reseller"].map((pkg) => (
         <button
           key={pkg}
           onClick={() => setActivePackage(pkg)}
-          className={`px-3 py-1 text-xs rounded-md ${
-            activePackage === pkg ? "bg-blue-500" : "bg-gray-700"
-          } hover:bg-blue-600 transition`}
+          className={`px-4 py-2 rounded-lg ${activePackage === pkg ? "bg-blue-500" : "bg-gray-700"}`}
         >
           {pkg}
         </button>
@@ -172,10 +150,9 @@ const Home = () => {
 
   const infoGridItems = useMemo(
     () => [
-７      {
+      {
         title: "Proven Success Rate",
-        description:
-          "Most of our users successfully launch their online businesses with NolanDex, backed by real customer success stories",
+        description: "Most of our users successfully launch their online businesses with NolanDex, backed by real customer success stories",
       },
       {
         title: "Fast Setup",
@@ -196,8 +173,7 @@ const Home = () => {
         price: "$20",
         description: "Ideal for individuals or small businesses looking to set up their online presence",
         features: ["Full online business setup", "Website", "Social media booster", "Basic chatbot integration"],
-        whatsappLink:
-          "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Starter%20package.%20Can%20you%20provide%20more%20details?",
+        whatsappLink: "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Starter%20package.%20Can%20you%20provide%20more%20details?",
       },
       {
         name: "Website",
@@ -210,8 +186,7 @@ const Home = () => {
           "Membership/community websites",
           "Free domain + unlimited hosting",
         ],
-        whatsappLink:
-          "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Professional%20package.%20Can%20you%20provide%20more%20details?",
+        whatsappLink: "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Professional%20package.%20Can%20you%20provide%20more%20details?",
       },
       {
         name: "Join Reseller",
@@ -223,8 +198,7 @@ const Home = () => {
           "Reseller program integration (Free)",
           "Access to exclusive marketing resources and tools",
         ],
-        whatsappLink:
-          "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Enterprise%20package.%20Can%20you%20provide%20more%20details?",
+        whatsappLink: "https://wa.me/6285156779923?text=Hello,%20I'm%20interested%20in%20the%20Enterprise%20package.%20Can%20you%20provide%20more%20details?",
       },
     ],
     []
