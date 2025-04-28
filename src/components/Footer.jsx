@@ -5,11 +5,8 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4 text-center">
-        {/* Logo & Tagline */}
-        <h2 className="text-2xl font-bold">Orion 🚀</h2>
-        <p className="text-gray-400 text-sm mt-2">
-          Bringing your ideas to the stars 🌌
-        </p>
+        {/* Logo */}
+        <h2 className="text-2xl font-bold">NolanDex</h2>
 
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center gap-4 mt-6">
@@ -69,7 +66,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-gray-500 text-sm mt-6">
-          © {new Date().getFullYear()} Orion. All rights reserved.
+          @2025 NolanDex
         </p>
       </div>
     </footer>
